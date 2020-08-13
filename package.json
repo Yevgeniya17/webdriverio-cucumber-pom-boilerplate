@@ -27,5 +27,7 @@
     "wdio-cucumber-parallel-execution": "^3.6.7",
     "wdio-cucumberjs-json-reporter": "1.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }

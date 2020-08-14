@@ -123,7 +123,7 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 5000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -155,7 +155,14 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['dot', 'spec'],
+    reporters: [
+        // 'spec'
+
+        ['cucumberjs-json', {
+            jsonFolder: jsonTmpDirectory,
+            language: 'en',
+        }]
+    ],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -319,7 +326,7 @@ exports.config = {
                 output: `tests/reports/html/report-${currentTime}.html`,
                 reportSuiteAsScenarios: true,
                 scenarioTimestamp: true,
-                launchReport: true,
+                launchReport: false,
                 ignoreBadJsonFile: true
             };
     

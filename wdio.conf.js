@@ -158,7 +158,7 @@ exports.config = {
     reporters: [
         // 'spec'
 
-        ['cucumberjs-json', {
+        ['dot', {
             jsonFolder: jsonTmpDirectory,
             language: 'en',
         }]

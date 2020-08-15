@@ -6,4 +6,3 @@ Feature: Validate the Search functionality of webdriverIO Site
     Given I open "http://automationpractice.com/index.php" the website
     When I login with valid credentials
       And I make an order
-      And I make a reorder

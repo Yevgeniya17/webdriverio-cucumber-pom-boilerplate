@@ -20,11 +20,13 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.searchButton).click();
     $(this.homePageElement.sortByDropdown).waitForExist();
     browser.pause(5000);
+    $(this.homePageElement.homePageLink).click();
   }
 
   openCart() {
     $(this.homePageElement.cartLink).click();
     $(this.homePageElement.shoppingCardHeader).waitForDisplayed();
+    $(this.homePageElement.homePageLink).click();
   }
 
   addItemToCart() {
@@ -46,6 +48,7 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.messageTextbox).setValue('Wrong items');
     $(this.homePageElement.sendButton).click();
     $(this.homePageElement.messageSendSuccess).waitForDisplayed();
+    $(this.homePageElement.homePageLink).click();
     
   }
 
@@ -67,9 +70,12 @@ class sampleHomePage extends NativePage {
   addItemToWishlist() {
     $(this.homePageElement.printedDressItemLink).click();
     $(this.homePageElement.addToWishlistButton).waitForDisplayed();
+    browser.pause(3000);
     $(this.homePageElement.addToWishlistButton).click();
-    $(this.homePageElement.closeWindowAddToWishlist).waitForDisplayed();
+    $(this.homePageElement.closeWindowAddToWishlist).waitForClickable();
     $(this.homePageElement.closeWindowAddToWishlist).click();
+    browser.pause(3000);
+    $(this.homePageElement.homePageLink).click();
   }
 
   checkMyWishlistItem() {
@@ -79,6 +85,7 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.viewMyWishlistLink).click();
     $(this.homePageElement.myWishlistDetailsWindow).waitForDisplayed();
     $(this.homePageElement.closeMyWishlistDetailsButton).click();
+    $(this.homePageElement.homePageLink).click();
   }
 
   sendMyWishlist() {
@@ -93,6 +100,7 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.sendEmailTextbox).setValue('a123@gmail.com');
     $(this.homePageElement.sendMyWishlistButton).click();
     browser.pause(5000);
+    $(this.homePageElement.homePageLink).click();
 
   }
 
@@ -103,6 +111,7 @@ class sampleHomePage extends NativePage {
 }
   let randomString = generateString();
 
+  $(this.homePageElement.singInLink).waitForExist();
   $(this.homePageElement.singInLink).click();
   $(this.homePageElement.emailCreateTextbox).setValue(randomString);
   $(this.homePageElement.createAnAccountButton).click();
@@ -135,15 +144,15 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.cartLink).click();
     $(this.homePageElement.proceedToCheckoutOnCartPageLink).waitForDisplayed();
     $(this.homePageElement.proceedToCheckoutOnCartPageLink).click();
-    $(this.homePageElement.confirmAddressButton).waitForDisplayed();
+    $(this.homePageElement.confirmAddressButton).waitForClickable();
     $(this.homePageElement.confirmAddressButton).click();
     $(this.homePageElement.agreeToTheTermsCheckbox).waitForExist();
     $(this.homePageElement.agreeToTheTermsCheckbox).click();
-    $(this.homePageElement.confirmShippingButton).waitForDisplayed();
+    $(this.homePageElement.confirmShippingButton).waitForClickable();
     $(this.homePageElement.confirmShippingButton).click();
-    $(this.homePageElement.payByCheckLink).waitForDisplayed();
+    $(this.homePageElement.payByCheckLink).waitForClickable();
     $(this.homePageElement.payByCheckLink).click();
-    $(this.homePageElement.confirmMyOrderButton).waitForDisplayed();
+    $(this.homePageElement.confirmMyOrderButton).waitForClickable();
     $(this.homePageElement.confirmMyOrderButton).click();
     $(this.homePageElement.ConfirmationText).waitForDisplayed();
     $(this.homePageElement.homePageLink).click();
@@ -158,6 +167,7 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.orderReferenceLink).click();
     $(this.homePageElement.reorderLink).waitForDisplayed();
     $(this.homePageElement.reorderLink).click();
+    $(this.homePageElement.homePageLink).click();
 
   }
 
@@ -180,6 +190,13 @@ class sampleHomePage extends NativePage {
     $(this.homePageElement.shoppingCardHeader).waitForDisplayed();
     $(this.homePageElement.increaseQuantityLink).click();
     $(this.homePageElement.homePageLink).click();
+
+  }
+
+  signOut() {
+    $(this.homePageElement.signOutLink).waitForExist();
+    $(this.homePageElement.signOutLink).click();
+    $(this.homePageElement.singInLink).waitForExist();
 
   }
 }

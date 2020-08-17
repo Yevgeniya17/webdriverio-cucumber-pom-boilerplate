@@ -33,14 +33,17 @@ When(/^I navigate to home page$/, () => {
 });
 
 When(/^I add item to wishlist$/, () => {
+    home.login();
     home.addItemToWishlist();
 });
 
 When(/^I check my wishlist$/, () => {
+    home.login();
     home.checkMyWishlistItem();
 });
 
 When(/^I send my wishlist$/, () => {
+    home.login();
     home.sendMyWishlist();
 });
 
@@ -50,6 +53,7 @@ When(/^I register an account$/, () => {
 
 Given(/^I make an order$/, () => {
     home.login();
+    home.addItemToCart();
     home.makeAnOrder();
 });
 
@@ -70,4 +74,8 @@ When(/^I set item quantity to 2$/, () => {
     home.login();
     home.addItemToCart();
     home.changeItemQuantity();
+});
+
+When(/^I log out$/, () => {
+    home.signOut();
 });

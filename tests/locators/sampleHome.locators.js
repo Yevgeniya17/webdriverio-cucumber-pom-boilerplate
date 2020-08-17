@@ -33,7 +33,7 @@ class homeLocators {
     this.viewMyWishlistLink = '//a[contains(@onclick,"WishlistManage")]';
     this.myWishlistDetailsWindow = '#block-order-detail';
     this.closeMyWishlistDetailsButton = '#hideSendWishlist';
-    this.sendMyWishlistButton = 'button[onclick="WishlistSend(\'wl_send\', \'23277\', \'email\');"]';
+    this.sendMyWishlistButton = '//button[contains(@onclick,"WishlistSend")]';
     this.sendMyWishlistLink = '#showSendWishlist';
     this.sendEmailTextbox = '#email1';
     this.emailCreateTextbox = '#email_create';
@@ -69,7 +69,8 @@ class homeLocators {
     this.addAMessageTexarea = 'textarea[name="msgText"]';
     this.addAMessageSendButton = 'button[name="submitMessage"]';
     this.decreaseQuantityLink = 'a[title="Subtract"]';
-    this.increaseQuantityLink  = 'a[title="Add"]'
+    this.increaseQuantityLink  = 'a[title="Add"]';
+    this.signOutLink = 'a[title="Log me out"]'
 
   }
 }

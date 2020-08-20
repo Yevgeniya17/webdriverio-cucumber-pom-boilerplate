@@ -4,200 +4,72 @@ require('dotenv').config()
 
 class sampleHomePage extends NativePage {
 
-  
+
 
   get homePageElement() {
     return this.getPage('sampleHome.locators');
   }
 
-  openHomePage(url) {
-    browser.url(url);
-    $(this.homePageElement.printedDressItemLink).waitForDisplayed();
-  }
-
-  search(keyword) {
-    $(this.homePageElement.searchTextbox).setValue(keyword);
-    $(this.homePageElement.searchButton).click();
-    $(this.homePageElement.sortByDropdown).waitForExist();
-    browser.pause(5000);
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  openCart() {
-    $(this.homePageElement.cartLink).click();
-    $(this.homePageElement.shoppingCardHeader).waitForDisplayed();
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  addItemToCart() {
-    $(this.homePageElement.printedDressItemLink).click();
-    $(this.homePageElement.addToCartButton).waitForDisplayed();
-    $(this.homePageElement.addToCartButton).click();
-    $(this.homePageElement.closeWindowAddToCart).waitForDisplayed();
-    $(this.homePageElement.closeWindowAddToCart).click();
-    browser.pause(3000);
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  sentMessageContactForm() {
-    $(this.homePageElement.contactUsLink).click();
-    $(this.homePageElement.subjectHeadingDropdown).waitForExist();
-    $(this.homePageElement.subjectHeadingDropdown).selectByIndex(1);
-    $(this.homePageElement.emailTextbox).setValue('test@gmail.com');
-    $(this.homePageElement.orderReferenceTextbox).setValue('232');
-    $(this.homePageElement.messageTextbox).setValue('Wrong items');
-    $(this.homePageElement.sendButton).click();
-    $(this.homePageElement.messageSendSuccess).waitForDisplayed();
-    $(this.homePageElement.homePageLink).click();
-    
-  }
-
-  login() {
-    $(this.homePageElement.singInLink).click();
-    $(this.homePageElement.emailLoginTextbox).waitForDisplayed();
-    $(this.homePageElement.emailLoginTextbox).setValue(process.env.testing_email);
-    $(this.homePageElement.passwordTextbox).setValue(process.env.testing_password);
-    $(this.homePageElement.signInButton).click();
-    $(this.homePageElement.orderHistoryButton).waitForDisplayed();
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  navigateToHome() {
-    $(this.homePageElement.homePageLink).waitForDisplayed();
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  addItemToWishlist() {
-    $(this.homePageElement.printedDressItemLink).click();
-    $(this.homePageElement.addToWishlistButton).waitForDisplayed();
-    browser.pause(3000);
-    $(this.homePageElement.addToWishlistButton).click();
-    $(this.homePageElement.closeWindowAddToWishlist).waitForClickable();
-    $(this.homePageElement.closeWindowAddToWishlist).click();
-    browser.pause(3000);
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  checkMyWishlistItem() {
-    $(this.homePageElement.viewMyAccountLink).click();
-    $(this.homePageElement.myWishlistButton).waitForClickable();
-    $(this.homePageElement.myWishlistButton).click();
-    $(this.homePageElement.viewMyWishlistLink).click();
-    $(this.homePageElement.myWishlistDetailsWindow).waitForDisplayed();
-    $(this.homePageElement.closeMyWishlistDetailsButton).click();
-    $(this.homePageElement.homePageLink).click();
-  }
-
-  sendMyWishlist() {
-    $(this.homePageElement.viewMyAccountLink).click();
-    $(this.homePageElement.myWishlistButton).waitForClickable();
-    $(this.homePageElement.myWishlistButton).click();
-    $(this.homePageElement.viewMyWishlistLink).click();
-    $(this.homePageElement.myWishlistDetailsWindow).waitForDisplayed();
-    $(this.homePageElement.sendMyWishlistLink).click();
-    browser.pause(1000);
-    $(this.homePageElement.sendMyWishlistLink).click();
-    $(this.homePageElement.sendEmailTextbox).setValue('a123@gmail.com');
-    $(this.homePageElement.sendMyWishlistButton).click();
-    browser.pause(5000);
-    $(this.homePageElement.homePageLink).click();
-
-  }
-
-  register() {
-  function generateString() {
-   let randomString = Math.random().toString(36).substring(7);
-   return randomString + "@gmail.com"
+openHomePage() {
+  browser.url("http://qatutorials.net:3000/");
 }
-  let randomString = generateString();
 
-  $(this.homePageElement.singInLink).waitForExist();
-  $(this.homePageElement.singInLink).click();
-  $(this.homePageElement.emailCreateTextbox).setValue(randomString);
-  $(this.homePageElement.createAnAccountButton).click();
-  $(this.homePageElement.titleMrsRadioButton).click();
-  $(this.homePageElement.firstNameTextbox).setValue('Asd');
-  $(this.homePageElement.lastNameTextbox).setValue('Qwe');
-  $(this.homePageElement.emailRegisterTextbox).click();
-  $(this.homePageElement.passwordCreateTextbox).setValue('Qwerty12');
-  $(this.homePageElement.dayOfBirthDropdown).selectByIndex(10);
-  $(this.homePageElement.monthOfBirthDropdown).selectByIndex(9);
-  $(this.homePageElement.yearOfBirthDropdown).selectByIndex(29);
-  $(this.homePageElement.singUpForNewsletterCheckbox).click();
-  $(this.homePageElement.receiveSpecialOffersCheckbox).click();
-  $(this.homePageElement.addressTextbox).setValue('111 asd');
-  $(this.homePageElement.cityTextbox).setValue('Qwerty');
-  $(this.homePageElement.stateDropdown).selectByIndex(10);
-  $(this.homePageElement.zipCodeTextbox).setValue('12345');
-  $(this.homePageElement.mobilePhoneTextbox).setValue(12345678901);
-  $(this.homePageElement.addressAliasTextbox).setValue('Home address');
-  $(this.homePageElement.registerAnAccountButton).click();
-  $(this.homePageElement.orderHistoryButton).waitForDisplayed();
-  $(this.homePageElement.homePageLink).click();
-  browser.pause(3000);
-
-  console.log('Email for generated user: ' + randomString);
+login() {
+  $(this.homePageElement.loginLink).click();
+  $(this.homePageElement.loginEmailTextbox).setValue('y.ten93@gmail.com');
+  $(this.homePageElement.loginPasswordTextbox).setValue('qwerty');
+  $(this.homePageElement.loginButton).click();
+  $(this.homePageElement.homePageLink).waitForDisplayed();
   }
 
+signUp() {
+  function generateRandomEmail() {
+    let randomEmail = Math.random().toString(36).substring(7);
+    return randomEmail + "@gmail.com"
+ }
+   let randomEmail = generateRandomEmail();
 
-  makeAnOrder() {
-    $(this.homePageElement.cartLink).click();
-    $(this.homePageElement.proceedToCheckoutOnCartPageLink).waitForDisplayed();
-    $(this.homePageElement.proceedToCheckoutOnCartPageLink).click();
-    $(this.homePageElement.confirmAddressButton).waitForClickable();
-    $(this.homePageElement.confirmAddressButton).click();
-    $(this.homePageElement.agreeToTheTermsCheckbox).waitForExist();
-    $(this.homePageElement.agreeToTheTermsCheckbox).click();
-    $(this.homePageElement.confirmShippingButton).waitForClickable();
-    $(this.homePageElement.confirmShippingButton).click();
-    $(this.homePageElement.payByCheckLink).waitForClickable();
-    $(this.homePageElement.payByCheckLink).click();
-    $(this.homePageElement.confirmMyOrderButton).waitForClickable();
-    $(this.homePageElement.confirmMyOrderButton).click();
-    $(this.homePageElement.ConfirmationText).waitForDisplayed();
+   function generateRandomUsername() {
+    let randomUsername = Math.random().toString(36).substring(7);
+    return randomUsername
+ }
+   let randomUsername = generateRandomUsername();
+
+   $(this.homePageElement.signUpLink).click();
+   $(this.homePageElement.signUpUsernameTextbox).setValue(randomUsername);
+   $(this.homePageElement.signUpEmailTextbox).setValue(randomEmail);
+   $(this.homePageElement.signUpPasswordTextbox).setValue('qwerty');
+   $(this.homePageElement.signUpConfirmPasswordTextbox).setValue('qwerty');
+   $(this.homePageElement.registerButton).click();
+
+   console.log('Username for generated user: ' + randomUsername);
+   console.log('Email for generated user: ' + randomEmail);
+  }
+
+  logOutHomePage() {
+    $(this.homePageElement.myDashboardLink).waitForExist();
+    $(this.homePageElement.myDashboardLink).click();
+    $(this.homePageElement.logOutHomePage).waitForExist();
+    $(this.homePageElement.logOutHomePage).click();
+    $(this.homePageElement.loginLink).waitForExist();
+  }
+
+  logOutProfilePage() {
+    $(this.homePageElement.logOutLink).waitForExist();
+    $(this.homePageElement.logOutLink).click();
+    $(this.homePageElement.loginLink).waitForExist();
+  }
+
+  switchToHomePage() {
+    $(this.homePageElement.homePageLink).waitForExist();
     $(this.homePageElement.homePageLink).click();
-
+    $(this.homePageElement.myDashboardLink).waitForDisplayed();
   }
 
-  reorder() {
-    $(this.homePageElement.viewMyAccountLink).click();
-    $(this.homePageElement.orderHistoryButton).waitForDisplayed();
-    $(this.homePageElement.orderHistoryButton).click();
-    $(this.homePageElement.orderReferenceLink).waitForDisplayed();
-    $(this.homePageElement.orderReferenceLink).click();
-    $(this.homePageElement.reorderLink).waitForDisplayed();
-    $(this.homePageElement.reorderLink).click();
-    $(this.homePageElement.homePageLink).click();
-
-  }
-
-  addAMessage() {
-    $(this.homePageElement.viewMyAccountLink).click();
-    $(this.homePageElement.orderHistoryButton).waitForDisplayed();
-    $(this.homePageElement.orderHistoryButton).click();
-    $(this.homePageElement.orderReferenceLink).waitForDisplayed();
-    $(this.homePageElement.orderReferenceLink).click();
-    $(this.homePageElement.addAMessageProductDropdown).selectByIndex(0);
-    $(this.homePageElement.addAMessageTexarea).setValue('Wrong Item');
-    $(this.homePageElement.addAMessageSendButton).click();
-    $(this.homePageElement.ConfirmationText).waitForDisplayed();
-    $(this.homePageElement.homePageLink).click();
-
-  }
-
-  changeItemQuantity() {
-    $(this.homePageElement.cartLink).click();
-    $(this.homePageElement.shoppingCardHeader).waitForDisplayed();
-    $(this.homePageElement.increaseQuantityLink).click();
-    $(this.homePageElement.homePageLink).click();
-
-  }
-
-  signOut() {
-    $(this.homePageElement.signOutLink).waitForExist();
-    $(this.homePageElement.signOutLink).click();
-    $(this.homePageElement.singInLink).waitForExist();
-
+  switchToUserPage() {
+    $(this.homePageElement.myDashboardLink).waitForExist();
+    $(this.homePageElement.myDashboardLink).click();
+    $(this.homePageElement.homePageLink).waitForDisplayed();
   }
 }
 

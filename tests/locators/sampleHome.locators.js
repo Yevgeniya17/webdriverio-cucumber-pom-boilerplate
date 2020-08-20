@@ -1,76 +1,90 @@
 class homeLocators {
   constructor() {
-    this.contactUsLink = 'a[title="Contact Us"]';
-    this.singInLink = 'a[title="Log in to your customer account"]';
-    this.searchTextbox = '#search_query_top';
-    this.searchButton = 'button[name="submit_search"]';
-    this.cartLink = 'a[title="View my shopping cart"]';
-    this.womenLink = 'a[title="Women"]';
-    this.dressesLink = '#block_top_menu > ul > li:nth-child(2) > a';
-    this.printedDressItemLink = '//*[@id="homefeatured"]/li[3]/div/div[2]/h5/a';
-    this.addToCartButton = 'button[name="Submit"]';
-    this.closeWindowAddToCart = 'span[title="Close window"]';
-    this.homePageLink = 'a[title="My Store"]'
-    this.accoutCreateEmailTextbox = '#email_create';
-    this.createAccountButton = '#SubmitCreate';
-    this.emailLoginTextbox = '#email';
-    this.passwordTextbox = '#passwd';
-    this.forgotPasswordLink = 'a[title="Recover your forgotten password"]';
-    this.signInButton = '#SubmitLogin > span'
-    this.subjectHeadingDropdown = '#id_contact';
-    this.emailTextbox = '#email';
-    this.orderReferenceTextbox = '#id_order';
-    this.messageTextbox = '#message';
-    this.sendButton = '#submitMessage > span';
-    this.sortByDropdown = 'select#selectProductSort';
-    this.shoppingCardHeader = '//span[text()="Your shopping cart"]';
-    this.messageSendSuccess = '.alert.alert-success';
-    this.orderHistoryButton = '//span[text()="Order history and details"]';
-    this.addToWishlistButton = '#wishlist_button';
-    this.closeWindowAddToWishlist = 'a[title="Close"]';
-    this.viewMyAccountLink ='a[title="View my customer account"]';
-    this.myWishlistButton ='a[title="My wishlists"]';
-    this.viewMyWishlistLink = '//a[contains(@onclick,"WishlistManage")]';
-    this.myWishlistDetailsWindow = '#block-order-detail';
-    this.closeMyWishlistDetailsButton = '#hideSendWishlist';
-    this.sendMyWishlistButton = '//button[contains(@onclick,"WishlistSend")]';
-    this.sendMyWishlistLink = '#showSendWishlist';
-    this.sendEmailTextbox = '#email1';
-    this.emailCreateTextbox = '#email_create';
-    this.createAnAccountButton ='#SubmitCreate';
-    this.titleMrsRadioButton = '#id_gender2';
-    this.firstNameTextbox = '#customer_firstname';
-    this.lastNameTextbox = '#customer_lastname';
-    this.emailRegisterTextbox = '#email';
-    this.passwordCreateTextbox = '#passwd';
-    this.dayOfBirthDropdown = '#days';
-    this.monthOfBirthDropdown = '#months';
-    this.yearOfBirthDropdown = '#years';
-    this.singUpForNewsletterCheckbox = '#newsletter';
-    this.receiveSpecialOffersCheckbox = '#optin';
-    this.addressTextbox = '#address1';
-    this.cityTextbox = '#city';
-    this.stateDropdown = '#id_state';
-    this.zipCodeTextbox = '#postcode';
-    this.mobilePhoneTextbox = '#phone_mobile';
-    this.addressAliasTextbox = '#alias';
-    this.registerAnAccountButton = '#submitAccount';
-    this.proceedToCheckoutLink = 'a[title="Proceed to checkout"]';
-    this.proceedToCheckoutOnCartPageLink = 'p > a[title="Proceed to checkout"]';
-    this.confirmAddressButton ='button[name="processAddress"]';
-    this.agreeToTheTermsCheckbox = '#cgv';
-    this.confirmShippingButton = 'button[name="processCarrier"]';
-    this.payByCheckLink = 'a[title="Pay by check."]';
-    this.confirmMyOrderButton = 'button.button.btn.btn-default.button-medium';
-    this.ConfirmationText = 'p.alert.alert-success'
-    this.orderReferenceLink = '(//a[contains(@href, \'javascript:showOrder\')])[1]';
-    this.reorderLink = 'a[onclick="$(this).closest(\'form\').submit(); return false;"]';
-    this.addAMessageProductDropdown = 'select[name="id_product"]';
-    this.addAMessageTexarea = 'textarea[name="msgText"]';
-    this.addAMessageSendButton = 'button[name="submitMessage"]';
-    this.decreaseQuantityLink = 'a[title="Subtract"]';
-    this.increaseQuantityLink  = 'a[title="Add"]';
-    this.signOutLink = 'a[title="Log me out"]'
+    this.loginLink = '#loginLink';
+    this.loginEmailTextbox = '#email';
+    this.loginPasswordTextbox = '#password';
+    this.loginButton = '#loginButton';
+    this.forgotPasswordLink = 'a[href="/forgot-password"]';
+    this.signUpLink = '#signupLink';
+    this.signUpUsernameTextbox = 'input[name="username"]';
+    this.signUpEmailTextbox = 'input[name="email"]';
+    this.signUpPasswordTextbox = '#password';
+    this.signUpConfirmPasswordTextbox = '#cPassword';
+    this.registerButton = '#registerButton';
+    this.homePageLink = '#viewSiteButton';
+    this.contactsLink = 'div.menu-primary>ul>li>a[href="/pages/контакты"]';
+    this.aboutUsLink = 'div.menu-primary>ul>li>a[href="/pages/о-нас"]';
+    this.ourPartnersLink = 'div.menu-primary>ul>li>a[href="/pages/наши-партнеры"]';
+    this.testingSchoolLink = 'div.menu-primary>ul>li>a[href="https://qualityassurance.ru/"]';
+    this.breakingNewsLink = 'h5>a[href="/post/qa"]';
+    this.mostViewedPost = 'h2>a[href="/post/qa"]';
+
+    this.myAccountWindow = 'span.user';
+    this.viewSiteButton = '//button[text()="View Site"]';
+    this.dashboardLink = '#dashboard';
+    this.postsDropdown = '#posts';
+    this.allPostsLink = '#allPosts';
+    this.addNewArticleLink = '//a/span[text()="Add New Article"]';
+    this.categoriesDropdown = '#categories';
+    this.categoriesLink = '//*[@id="side-header-menu"]/ul/li/ul/li/a/span[text()="Categories"]';
+    this.subcategoriesLink = '//span[text()="Subcategories"]';
+    this.newsletterLink = '//span[text()="Newsletter"]';
+    this.subscribersLink = '//span[text()="Subscribers"]';
+    this.sendEmailToSubscribersLink = '//span[text()="Send Email to Subscribers"]';
+    this.mediaDropdown = '//span[text()="Media"]';
+    this.libraryLink = '//span[text()="Library"]';
+    this.addNewMediaLink = '//a[contains(@href,"media")]/span[text()="Add New"]';
+    this.pagesDropdown = '//span[text()="Pages"]';
+    this.allPagesLink = '//span[text()="All Pages"]';
+    this.addNewPagesLink = '//a[contains(@href,"pages")]/span[text()="Add New"]';
+    this.commentsLink = '//span[text()="Comments"]';
+    this.contactsLink = '//span[text()="Contacts"]';
+    this.menuLink = '//span[text()="Menu"]';
+    this.adSpacesLink = '//span[text()="Ad Spaces"]';
+    this.usersDropdown = '//span[text()="Users"]';
+    this.administratorsLink = '//span[text()="Administrators"]';
+    this.allUsersLink = '//span[text()="All Users"]';
+    this.addNewUsersLink = '//a[contains(@href,"users")]/span[text()="Add New"]';
+    this.myProfileLink = '//span[text()="My Profile"]';
+    this.SocialLoginConfigurationLink = '//span[text()="Social Login Configuration"]';
+    this.preferencesLink = '//span[text()="Preferences"]';
+    this.visualSettingsLink = '//span[text()="Visual Settings"]';
+    this.settingsDropdown = '//span[text()="Settings"]';
+    this.generalSettingsLink = '//span[text()="General Settings"]';
+    this.emailSettingsLink = '//span[text()="Email Settings"]';
+    this.mediaSettingsLink = '//span[text()="Media Settings"]'
+    this.logOutLink = '//span[text()="Log Out"]';
+    this.postLink = '//p[text()="Post"]';
+    this.commentLink = '//p[text()="Comment"]';
+    this.inactivePostLink = '//p[text()="Inactive Post"]';
+    this.usersLink = '//p[text()="Users"]';
+    this.viewAllCommentsButton = '//a[contains(@href,"comments")]/button[text()="View All"]';
+    this.viewAllContactMessagesButton = '//a[contains(@href,"contacts")]/button[text()="View All"]';
+    this.viewAllUsersButton = '//a[contains(@href,"users")]/button[text()="View All"]';
+    this.viewAllSubscribersButton = '//a[contains(@href,"newsletter")]/button[text()="View All"]';
+    this.searchButton = '#toggleSearch';
+    this.searchTextbox = '#searchInput';
+    this.myDashboardLink = '//a[text()="Dashboard"]';
+
+    this.pendingPostsLink = '#pendingPosts';
+    this.followersLink = '#followers';
+    this.followingLink = '#following';
+    this.bookmarksLink = '#bookmarks';
+
+    this.logOutHomePageLink = '#logoutLinklogoutLink';
+
+
+
+  
+
+
+
+
+
+
+
+
+
 
   }
 }

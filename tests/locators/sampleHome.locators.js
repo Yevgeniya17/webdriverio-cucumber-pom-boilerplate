@@ -45,7 +45,7 @@ class homeLocators {
     this.administratorsLink = '//span[text()="Administrators"]';
     this.allUsersLink = '//span[text()="All Users"]';
     this.addNewUsersLink = '//a[contains(@href,"users")]/span[text()="Add New"]';
-    this.myProfileLink = '//span[text()="My Profile"]';
+    this.myProfileAdminLink = '#myProfileLink';
     this.SocialLoginConfigurationLink = '//span[text()="Social Login Configuration"]';
     this.preferencesLink = '//span[text()="Preferences"]';
     this.visualSettingsLink = '//span[text()="Visual Settings"]';
@@ -53,7 +53,7 @@ class homeLocators {
     this.generalSettingsLink = '//span[text()="General Settings"]';
     this.emailSettingsLink = '//span[text()="Email Settings"]';
     this.mediaSettingsLink = '//span[text()="Media Settings"]'
-    this.logOutLink = '//span[text()="Log Out"]';
+    this.logOutAdminLink = '#logoutLink';
     this.postLink = '//p[text()="Post"]';
     this.commentLink = '//p[text()="Comment"]';
     this.inactivePostLink = '//p[text()="Inactive Post"]';
@@ -72,6 +72,67 @@ class homeLocators {
     this.bookmarksLink = '#bookmarks';
 
     this.logOutHomePageLink = '#logoutLinklogoutLink';
+
+    this.newUserCheckbox = '(//input[@name="ids"])[2]';
+    this.bulkActionsDropdown = 'div[class="nice-select form-control form-control-sm bulk"]';
+    this.confirmNewUser = '//li[text()="Confirm User Email"]';
+    this.applyButton = '#applyChanges';
+    this.successMessage = '#successMessage';
+
+    this.logOutUserLink = '#logout';
+    this.myProfileUserLink = '#myProfile';
+    this.addPostUser = '#addPostLink';
+    this.addArticleUser = '#addPost';
+    this.postTitleTextbox = '#title';
+    this.postSlugTextbox = '#slug';
+    this.postSummaryTextbox = '#summary';
+    this.postKeywordsTextbox = '#keywords';
+    this.postCategoryDropdown = '//span[text()="-- Please Select a Category --"]';
+    this.postQACategory = '(//li[contains(@class,"option")])[2]';
+    this.postSubcategoryDropdown = '//span[text()="-- Select a Sub-Category --"]';
+    this.postContentTexarea = '#tinymce';
+    this.postParagraphDropdown = 'button[title="Blocks"]';
+    this.paragraphHeading1 = '//h1[text()="Heading 1"]';
+    this.paragraphHeading2 = '//h2[text()="Heading 2"]';
+    this.paragraphHeading3 = '//h3[text()="Heading 3"]';
+    this.paragraphHeading4 = '//h4[text()="Heading 4"]';
+    this.paragraphHeading5 = '//h5[text()="Heading 5"]';
+    this.paragraphHeading6 = '//h5[text()="Heading 6"]';
+    this.paragraphPreformatted = '//pre[text()="Preformatted"]';
+    this.postContentBoldButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[1]';
+    this.postContentItalicButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[2]';
+    this.postTextColor = '(//span[@role="presentation"])[2]';
+    this.postTextColorGreen = 'div[title="Green"]';
+    this.postTextColorBlack = 'div[title="Black"]';
+    this.postTextBackgroundColor = '(//span[@role="presentation"])[4]';
+    this.postTextBackgroundColorYellow = 'div[title="Yellow"]';
+    this.postContentAlignLeftButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[10]';
+    this.postContentAlignCenterButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[11]';
+    this.postContentAlignRightButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[12]';
+
+    this.currentPasswordUserTextbox = 'input[name="currentPassword"]';
+    this.newPasswordUserTextbox = 'input[name="password"]';
+    this.savePasswordUserButton = '(//input[@value="Save Changes"])[2]';
+
+    this.firstNameUserTextbox = 'input[name="firstName"]';
+    this.lastNameUserTextbox = 'input[name="lastName"]';
+    this.aboutMeUserTextArea = '#about';
+    this.saveUserInfromationButton = '(//input[@value="Save Changes"])[1]';
+    this.usernameTextbox = 'input[name="username"]';
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

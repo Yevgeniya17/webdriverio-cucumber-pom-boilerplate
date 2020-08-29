@@ -69,5 +69,9 @@ When(/^I create an account and change password$/, () => {
 });
 
 
-
+When(/^I create a new page$/, () => {
+    home.loginAdmin();
+    home.createNewPage();
+    home.logOutAdminPage();
+});
 

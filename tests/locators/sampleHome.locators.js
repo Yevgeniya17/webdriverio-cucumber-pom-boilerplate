@@ -37,6 +37,12 @@ class homeLocators {
     this.pagesDropdown = '//span[text()="Pages"]';
     this.allPagesLink = '//span[text()="All Pages"]';
     this.addNewPagesLink = '//a[contains(@href,"pages")]/span[text()="Add New"]';
+    this.pageNameTextbox = '#title';
+    this.publishCheckbox = 'input[value="published"]';
+    this.draftCheckbox = 'input[value="draft"]';
+    this.publishPageButton = '//button[text()="Publish"]';
+
+
     this.commentsLink = '//span[text()="Comments"]';
     this.contactsLink = '//span[text()="Contacts"]';
     this.menuLink = '//span[text()="Menu"]';
@@ -93,7 +99,7 @@ class homeLocators {
     this.postTestingCategory = '//li[text()="testing"]';
     this.postSubcategoryDropdown = '//span[text()="-- Select a Sub-Category --"]';
     this.postAutomationSubcategory = '(//li[text()="automation"])[2]';
-    this.postContentTexarea = '#tinymce';
+    this.contentTexarea = '#tinymce';
     this.postParagraphDropdown = 'button[title="Blocks"]';
     this.paragraphHeading1 = '//h1[text()="Heading 1"]';
     this.paragraphHeading2 = '//h2[text()="Heading 2"]';

@@ -125,7 +125,7 @@ signUp() {
       $(this.homePageElement.postAutomationSubcategory).waitForDisplayed();
       $(this.homePageElement.postAutomationSubcategory).click();
       browser.switchToFrame($('#body_ifr'));
-      $(this.homePageElement.postContentTexarea).setValue('Test,Test,Test');
+      $(this.homePageElement.contentTexarea).setValue('Test,Test,Test');
       browser.switchToParentFrame();
       $(this.homePageElement.postContentBoldButton).click();
       $(this.homePageElement.postTextColor).click();
@@ -253,6 +253,23 @@ signUp() {
   $(this.homePageElement.newPasswordUserTextbox).setValue(randomNewPassword);
   $(this.homePageElement.savePasswordUserButton).click();
   $(this.homePageElement.successMessage).waitForDisplayed();
+  }
+
+
+  createNewPage() {
+    var randomName = faker.lorem.word();
+
+    $(this.homePageElement.pagesDropdown).waitForClickable();
+    $(this.homePageElement.pagesDropdown).click();
+    $(this.homePageElement.addNewPagesLink).waitForClickable();
+    $(this.homePageElement.addNewPagesLink).click();
+    $(this.homePageElement.pageNameTextbox).waitForDisplayed();
+    $(this.homePageElement.pageNameTextbox).setValue(randomName);
+    browser.switchToFrame($('#content_ifr'));
+    $(this.homePageElement.contentTexarea).setValue('Test');
+    browser.switchToParentFrame();
+    $(this.homePageElement.publishCheckbox).click();
+    $(this.homePageElement.publishPageButton).click();   
   }
     
 }

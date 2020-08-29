@@ -79,6 +79,8 @@ class homeLocators {
     this.applyButton = '#applyChanges';
     this.successMessage = '#successMessage';
 
+    this.profileToggle = '#profileToggle';
+    this.signOutLink = '(//a[@href="/log-out"])[1]';
     this.logOutUserLink = '#logout';
     this.myProfileUserLink = '#myProfile';
     this.addPostUser = '#addPostLink';

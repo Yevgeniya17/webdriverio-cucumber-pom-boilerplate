@@ -55,8 +55,10 @@ signUp() {
   }
 
   logOutAdminPage() {
-    $(this.homePageElement.logOutAdminLink).waitForExist();
-    $(this.homePageElement.logOutAdminLink).click();
+    $(this.homePageElement.profileToggle).waitForClickable();
+    $(this.homePageElement.profileToggle).click();
+    $(this.homePageElement.signOutLink).waitForDisplayed();
+    $(this.homePageElement.signOutLink).click();
     $(this.homePageElement.loginLink).waitForDisplayed();
   }
 
@@ -73,6 +75,7 @@ signUp() {
   }
 
   verifyNewUser() {
+   $(this.homePageElement.usersDropdown).waitForClickable();
    $(this.homePageElement.usersDropdown).click();
    browser.pause(3000);
    $(this.homePageElement.allUsersLink).click();
@@ -98,8 +101,10 @@ signUp() {
     }
 
     logOutUserPage() {
-      $(this.homePageElement.logOutUserLink).waitForExist();
-      $(this.homePageElement.logOutUserLink).click();
+      $(this.homePageElement.profileToggle).waitForClickable();
+      $(this.homePageElement.profileToggle).click();
+      $(this.homePageElement.signOutLink).waitForDisplayed();
+      $(this.homePageElement.signOutLink).click();
       $(this.homePageElement.loginLink).waitForDisplayed();
     }
 
@@ -209,6 +214,7 @@ signUp() {
   // $(this.homePageElement.homePageLink).waitForDisplayed();
   browser.pause(3000);
 
+  $(this.homePageElement.usersDropdown).waitForClickable();
   $(this.homePageElement.usersDropdown).click();
   browser.pause(3000);
   $(this.homePageElement.allUsersLink).click();
@@ -220,8 +226,10 @@ signUp() {
   $(this.homePageElement.applyButton).click();
   $(this.homePageElement.successMessage).waitForDisplayed();
 
-  $(this.homePageElement.logOutAdminLink).waitForExist();
-  $(this.homePageElement.logOutAdminLink).click();
+  $(this.homePageElement.profileToggle).waitForClickable();
+  $(this.homePageElement.profileToggle).click();
+  $(this.homePageElement.signOutLink).waitForDisplayed();
+  $(this.homePageElement.signOutLink).click();
   $(this.homePageElement.loginLink).waitForDisplayed();
 
   browser.pause(3000);

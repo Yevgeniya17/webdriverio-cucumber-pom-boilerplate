@@ -10,7 +10,7 @@ const sourceSpecDirectory = `tests/features/featureFiles`;
 const jsonTmpDirectory = `tests/reports/json/tmp/`;
 
 
-let featureFilePath = `${sourceSpecDirectory}/*.feature`;
+let featureFilePath = `${sourceSpecDirectory}/user.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
 // And store then in a tmp spec directory (created inside `the source spec directory)
@@ -81,9 +81,9 @@ exports.config = {
         maxInstances: 1,
         //
         browserName: 'chrome',
-        // 'goog:chromeOptions': {
-        //     args: ['--headless', '--disable-gpu', '--window-size=1920,1080'],
-        //   },
+        'goog:chromeOptions': {
+            args: ['--headless', '--disable-gpu', '--window-size=1920,1080'],
+          },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -179,7 +179,7 @@ exports.config = {
         profile: [],        // <string[]> (name) specify the profile to use
         strict: false,      // <boolean> fail if there are any undefined or pending steps
         tagExpression: '',  // <string> (expression) only execute the features or scenarios with tags matching the expression
-        timeout: 60000,     // <number> timeout for step definitions
+        timeout: 120000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
 

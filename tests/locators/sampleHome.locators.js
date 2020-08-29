@@ -73,7 +73,7 @@ class homeLocators {
 
     this.logOutHomePageLink = '#logoutLinklogoutLink';
 
-    this.newUserCheckbox = '(//input[@name="ids"])[2]';
+    this.newUserCheckbox = '(//input[@name="ids"])[1]';
     this.bulkActionsDropdown = 'div[class="nice-select form-control form-control-sm bulk"]';
     this.confirmNewUser = '//li[text()="Confirm User Email"]';
     this.applyButton = '#applyChanges';
@@ -88,8 +88,9 @@ class homeLocators {
     this.postSummaryTextbox = '#summary';
     this.postKeywordsTextbox = '#keywords';
     this.postCategoryDropdown = '//span[text()="-- Please Select a Category --"]';
-    this.postQACategory = '(//li[contains(@class,"option")])[2]';
+    this.postTestingCategory = '//li[text()="testing"]';
     this.postSubcategoryDropdown = '//span[text()="-- Select a Sub-Category --"]';
+    this.postAutomationSubcategory = '(//li[text()="automation"])[2]';
     this.postContentTexarea = '#tinymce';
     this.postParagraphDropdown = 'button[title="Blocks"]';
     this.paragraphHeading1 = '//h1[text()="Heading 1"]';
@@ -109,6 +110,7 @@ class homeLocators {
     this.postContentAlignLeftButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[10]';
     this.postContentAlignCenterButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[11]';
     this.postContentAlignRightButton = '(//span[contains(@class,"tox-icon tox-tbtn__icon-wrap")])[12]';
+    this.publishButton = '#publishButton';
 
     this.currentPasswordUserTextbox = 'input[name="currentPassword"]';
     this.newPasswordUserTextbox = 'input[name="password"]';

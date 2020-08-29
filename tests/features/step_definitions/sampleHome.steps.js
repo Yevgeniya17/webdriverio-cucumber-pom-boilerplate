@@ -14,6 +14,9 @@ When(/^I login as admin$/, () => {
 
 When(/^I create an account$/, () => {
     home.signUp();
+    home.loginAdmin();
+    home.verifyNewUser();
+    home.logOutAdminPage();
 });
 
 When(/^I logout on home page$/, () => {
@@ -60,5 +63,11 @@ When(/^I change user password$/, () => {
 When(/^I change username$/, () => {
     home.changeUsername();
 });
+
+When(/^I create an account and change password$/, () => {
+    home.singUpAndCHangePassword();
+});
+
+
 
 

@@ -26,29 +26,24 @@ loginAdmin() {
   }
 
 signUp() {
-  function generateRandomEmail() {
-    let randomEmail = Math.random().toString(36).substring(7);
-    return randomEmail + "@gmail.com"
- }
-   let randomEmail = generateRandomEmail();
+  let randomUsername = faker.internet.userName();
+      console.log('New username: ' + randomUsername);
 
-   function generateRandomUsername() {
-    let randomUsername = Math.random().toString(36).substring(7);
-    return randomUsername
- }
-   let randomUsername = generateRandomUsername();
+  let randomNewPassword = faker.internet.password();
+      console.log('New password ' + randomNewPassword);
+
+  let randomEmail = faker.internet.email();
+  console.log('User email ' + randomEmail);
+
 
    $(this.homePageElement.signUpLink).click();
    browser.pause(3000);
    $(this.homePageElement.signUpUsernameTextbox).setValue(randomUsername);
    $(this.homePageElement.signUpEmailTextbox).setValue(randomEmail);
-   $(this.homePageElement.signUpPasswordTextbox).setValue('qwerty');
-   $(this.homePageElement.signUpConfirmPasswordTextbox).setValue('qwerty');
+   $(this.homePageElement.signUpPasswordTextbox).setValue(randomNewPassword);
+   $(this.homePageElement.signUpConfirmPasswordTextbox).setValue(randomNewPassword);
    $(this.homePageElement.registerButton).click();
    browser.pause(3000);
-
-   console.log('Username for generated user: ' + randomUsername);
-   console.log('Email for generated user: ' + randomEmail);
   }
 
   logOutHomePage() {
@@ -87,10 +82,12 @@ signUp() {
    $(this.homePageElement.confirmNewUser).waitForDisplayed();
    $(this.homePageElement.confirmNewUser).click();
    $(this.homePageElement.applyButton).click();
-   $(this.homePageElement.confirmationUserActivated).waitForDisplayed();
+   $(this.homePageElement.successMessage).waitForDisplayed();
   }
 
   loginUser() {
+    browser.pause(3000);
+    $(this.homePageElement.loginLink).waitForClickable();
     $(this.homePageElement.loginLink).click();
     browser.pause(3000);
     $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_user);
@@ -117,9 +114,12 @@ signUp() {
       $(this.homePageElement.postSummaryTextbox).setValue('Test');
       $(this.homePageElement.postKeywordsTextbox).setValue('Test');
       $(this.homePageElement.postCategoryDropdown).click();
-      $(this.homePageElement.postQACategory).waitForDisplayed();
-      $(this.homePageElement.postQACategory).click();
-      browser.switchToFrame('body_ifr');
+      $(this.homePageElement.postTestingCategory).waitForDisplayed();
+      $(this.homePageElement.postTestingCategory).click();
+      $(this.homePageElement.postSubcategoryDropdown).click();
+      $(this.homePageElement.postAutomationSubcategory).waitForDisplayed();
+      $(this.homePageElement.postAutomationSubcategory).click();
+      browser.switchToFrame($('#body_ifr'));
       $(this.homePageElement.postContentTexarea).setValue('Test,Test,Test');
       browser.switchToParentFrame();
       $(this.homePageElement.postContentBoldButton).click();
@@ -127,6 +127,7 @@ signUp() {
       $(this.homePageElement.postTextColorGreen).waitForDisplayed();
       $(this.homePageElement.postTextColorGreen).click();
       $(this.homePageElement.postContentAlignCenterButton).click();
+      $(this.homePageElement.publishButton).click();
     }
 
     changeUserName() {
@@ -180,6 +181,71 @@ signUp() {
       $(this.homePageElement.successMessage).waitForExist();
     }
 
+    singUpAndCHangePassword() {
+      let randomUsername = faker.internet.userName();
+      console.log('New username: ' + randomUsername);
+
+    let randomPassword = faker.internet.password();
+      console.log('Password ' + randomPassword);
+
+    let randomEmail = faker.internet.email();
+      console.log('User email ' + randomEmail);
+
+
+   $(this.homePageElement.signUpLink).click();
+   browser.pause(3000);
+   $(this.homePageElement.signUpUsernameTextbox).setValue(randomUsername);
+   $(this.homePageElement.signUpEmailTextbox).setValue(randomEmail);
+   $(this.homePageElement.signUpPasswordTextbox).setValue(randomPassword);
+   $(this.homePageElement.signUpConfirmPasswordTextbox).setValue(randomPassword);
+   $(this.homePageElement.registerButton).click();
+   browser.pause(3000);
+
+  $(this.homePageElement.loginLink).click();
+  browser.pause(3000);
+  $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_admin);
+  $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_admin);
+  $(this.homePageElement.loginButton).click();
+  // $(this.homePageElement.homePageLink).waitForDisplayed();
+  browser.pause(3000);
+
+  $(this.homePageElement.usersDropdown).click();
+  browser.pause(3000);
+  $(this.homePageElement.allUsersLink).click();
+  browser.pause(3000);
+  $(this.homePageElement.newUserCheckbox).click();
+  $(this.homePageElement.bulkActionsDropdown).click();
+  $(this.homePageElement.confirmNewUser).waitForDisplayed();
+  $(this.homePageElement.confirmNewUser).click();
+  $(this.homePageElement.applyButton).click();
+  $(this.homePageElement.successMessage).waitForDisplayed();
+
+  $(this.homePageElement.logOutAdminLink).waitForExist();
+  $(this.homePageElement.logOutAdminLink).click();
+  $(this.homePageElement.loginLink).waitForDisplayed();
+
+  browser.pause(3000);
+  $(this.homePageElement.loginLink).waitForClickable();
+  $(this.homePageElement.loginLink).click();
+  browser.pause(3000);
+  $(this.homePageElement.loginEmailTextbox).setValue(randomEmail);
+  $(this.homePageElement.loginPasswordTextbox).setValue(randomPassword);
+  $(this.homePageElement.loginButton).click();
+  // $(this.homePageElement.homePageLink).waitForDisplayed();
+  browser.pause(3000);
+
+  let randomNewPassword = faker.internet.password();
+      console.log('New password ' + randomNewPassword);
+
+  $(this.homePageElement.myProfileUserLink).waitForDisplayed();
+  $(this.homePageElement.myProfileUserLink).click();
+  browser.pause(2000);
+  $(this.homePageElement.currentPasswordUserTextbox).waitForDisplayed();
+  $(this.homePageElement.currentPasswordUserTextbox).setValue(randomPassword);
+  $(this.homePageElement.newPasswordUserTextbox).setValue(randomNewPassword);
+  $(this.homePageElement.savePasswordUserButton).click();
+  $(this.homePageElement.successMessage).waitForDisplayed();
+  }
     
 }
 

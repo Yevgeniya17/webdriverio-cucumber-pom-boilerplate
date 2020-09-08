@@ -156,8 +156,10 @@ changeAddress() {
   $(this.homePageElement.cityTextbox).setValue(randomCity);
   $(this.homePageElement.stateTextbox).setValue(randomState);
   $(this.homePageElement.zipCodeTextbox).setValue(randomZipCode);
+  browser.pause(8000);
   $(this.homePageElement.countryDropdown).waitForClickable();
   $(this.homePageElement.countryDropdown).click();
+  $(this.homePageElementcoutryTextbox).waitForDisplayed();
   $(this.homePageElement.countryTextbox).setValue('United States');
   $(this.homePageElement.submitProfileUpdateButton).click();
   browser.pause(2000);

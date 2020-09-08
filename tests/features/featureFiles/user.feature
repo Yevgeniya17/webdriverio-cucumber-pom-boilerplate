@@ -10,12 +10,12 @@ Feature: Validate the Search functionality of webdriverIO Site
 #     And I login with valid credentials
 #     And I logout
 
-  @Scenario2
-  Scenario: As a user, I should search a hotel
+#   @Scenario2
+#   Scenario: As a user, I should search a hotel
 
-  When I login with valid credentials
-    And I search a hotel
-    And I logout
+#   When I login with valid credentials
+#     And I search a hotel
+#     And I logout
 
   @Scenario3
   Scenario: As a user, I should book a room

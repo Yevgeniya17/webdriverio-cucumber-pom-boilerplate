@@ -159,8 +159,11 @@ changeAddress() {
   browser.pause(8000);
   $(this.homePageElement.countryDropdown).waitForClickable();
   $(this.homePageElement.countryDropdown).click();
-  $(this.homePageElementcoutryTextbox).waitForDisplayed();
+  browser.pause(5000);
+  $(this.homePageElement.countryTextbox).waitForDisplayed();
   $(this.homePageElement.countryTextbox).setValue('United States');
+  browser.pause(5000);
+  $(this.homePageElement.unitedStatesOption).click();
   $(this.homePageElement.submitProfileUpdateButton).click();
   browser.pause(2000);
 }

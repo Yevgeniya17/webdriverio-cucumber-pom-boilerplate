@@ -42,6 +42,7 @@ class homeLocators {
     this.stateTextbox = 'input[name="state"]';
     this.zipCodeTextbox = 'input[name="zip"]';
     this.countryDropdown = 'a[class="chosen-single"]';
+    this.unitedStatesOption = 'li[data-option-array-index="215"]';
     this.countryTextbox = 'input[class="chosen-search-input"]';
     this.submitProfileUpdateButton = 'button[class="btn btn-block updateprofile btn-primary"]';
     this.wishlistLink = 'a[href="#wishlist"]';

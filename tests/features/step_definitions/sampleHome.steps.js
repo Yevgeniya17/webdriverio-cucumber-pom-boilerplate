@@ -6,12 +6,12 @@ const home = new homePage();
 
 Given(/^I open the website$/, () => {
     home.openHomePage();
-    browser.pause(3000);
+    browser.pause(8000);
 });
 
 When(/^I sign up a new user$/, () => {
     home.signUp();
-    browser.pause(3000);
+    browser.pause(8000);
 });
 
 When(/^I login with valid credentials$/, () => {

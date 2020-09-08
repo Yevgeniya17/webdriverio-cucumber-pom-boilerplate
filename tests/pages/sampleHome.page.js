@@ -74,7 +74,7 @@ login() {
   $(this.homePageElement.loginEmailTextbox).waitForDisplayed();
   $(this.homePageElement.loginEmailTextbox).setValue(process.env.user_email);
   $(this.homePageElement.loginPasswordTextbox).setValue(process.env.user_password);
-  browser.pause(2000);
+  browser.pause(5000);
   $(this.homePageElement.loginButton).click();
   $(this.homePageElement.bookingsLink).waitForDisplayed();
   $(this.homePageElement.homePageLink).click();
@@ -101,12 +101,14 @@ searchHotel() {
 
 bookRoom() {
   $(this.homePageElement.hotelDetailsButton).click();
-  $(this.homePageElement.selectRoomCheckbox).waitForExist();
+  $(this.homePageElement.selectRoomCheckbox).waitForClickable();
   $(this.homePageElement.selectRoomCheckbox).click();
+  $(this.homePageElement.bookNowButton).waitForClickable();
   $(this.homePageElement.bookNowButton).click();
-  $(this.homePageElement.confirmBookingButton).waitForDisplayed();
+  $(this.homePageElement.confirmBookingButton).waitForClickable();
   $(this.homePageElement.confirmBookingButton).click();
-  $(this.homePageElement.messageText).waitForDisplayed();
+  browser.pause(8000);
+  $(this.homePageElement.messageText).waitForExist();
   }
 
 addTourToWishlist() {
@@ -168,6 +170,7 @@ payOnArrival() {
   $(this.homePageElement.invoiceLink).waitForDisplayed();
   $(this.homePageElement.invoiceLink).click();
   browser.switchWindow('Invoice');
+  browser.pause(8000);
   $(this.homePageElement.payOnArrivalButton).click();
   browser.acceptAlert();
   $(this.homePageElement.reservationMessage).waitForDisplayed();

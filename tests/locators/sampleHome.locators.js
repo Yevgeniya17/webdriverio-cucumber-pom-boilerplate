@@ -13,13 +13,13 @@ class homeLocators {
     this.loginEmailTextbox = 'input[name="username"]';
     this.loginPasswordTextbox = 'input[type="password"]';
     this.loginButton = 'button[class="btn btn-primary btn-lg btn-block loginbtn"]'
-    this.homePageLink = 'a[title="home"]';
+    this.homePageLink = '//img[@alt="My Account"]';
     this.logOutLink = 'a[href="https://www.phptravels.net/account/logout/"]';
     this.homePageBackground = 'div[id="search"]';
 
     this.hotelsLink = 'a[href="#hotels"]';
-    this.destinationTextbox = '#s2id_autogen16';
-    this.firstDestinationFromDropdown = '(//div[@class="select2-result-label"])[2]';
+    this.destinationTextbox = '(//input[@class="select2-input"])[8]';
+    this.firstDestinationFromDropdown = '(//span[@class="select2-match"])[2]';
     this.checkInTextbox = 'input[id="checkin"]';
     this.checkOutTextbox = 'input[id="checkout"]';
     this.adultsDecreaseButton = '(//button[@class="btn btn-white bootstrap-touchspin-down "])[1]';

@@ -13,6 +13,7 @@ class sampleHomePage extends NativePage {
 
 openHomePage() {
   browser.url("https://www.phptravels.net/");
+  browser.pause(5000);
 }
 
 signUp() {
@@ -91,7 +92,9 @@ logout() {
 searchHotel() {
   $(this.homePageElement.hotelsLink).waitForDisplayed();
   $(this.homePageElement.hotelsLink).click();
+  browser.pause(5000);
   $(this.homePageElement.destinationTextbox).click();
+  $(this.homePageElement.destinationTextbox).setValue('a');
   $(this.homePageElement.firstDestinationFromDropdown).waitForExist();
   $(this.homePageElement.firstDestinationFromDropdown).click();
   $(this.homePageElement.adultsIncreaseButton).click();

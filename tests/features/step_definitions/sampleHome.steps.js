@@ -65,7 +65,7 @@ When(/^I change username$/, () => {
 });
 
 When(/^I create an account and change password$/, () => {
-    home.singUpAndCHangePassword();
+    home.singUpAndChangePassword();
 });
 
 

@@ -107,12 +107,13 @@ signUp() {
     }
 
     addNewArticleUser() {
-      let frame = $('.tox-edit-area__iframe');
-      $(this.homePageElement.sidePanelToggle).click();
+      let frame = $('//*[@id="body_ifr"]');
+    
       $(this.homePageElement.addPostUser).waitForDisplayed();
       $(this.homePageElement.addPostUser).click();
       $(this.homePageElement.addArticleUser).waitForDisplayed();
       $(this.homePageElement.addArticleUser).click();
+      driver.pause(10000);
       $(this.homePageElement.postTitleTextbox).waitForExist({ timeout: 5000 });
       $(this.homePageElement.postTitleTextbox).setValue('Test');
       $(this.homePageElement.postSlugTextbox).setValue('Test');
@@ -124,9 +125,9 @@ signUp() {
       $(this.homePageElement.postSubcategoryDropdown).click();
       $(this.homePageElement.postAutomationSubcategory).waitForDisplayed();
       $(this.homePageElement.postAutomationSubcategory).click();
-      frame.waitForDisplayed({ timeout: 5000 });
+      driver.pause(10000);
       browser.switchToFrame(frame);
-      $(this.homePageElement.contentTexarea).setValue('Test,Test,Test');
+      $(this.homePageElement.contentTextarea).setValue('Test,Test,Test');
       browser.switchToParentFrame();
       $(this.homePageElement.postContentBoldButton).click();
       $(this.homePageElement.postTextColor).click();
@@ -187,7 +188,7 @@ signUp() {
       $(this.homePageElement.successMessage).waitForExist();
     }
 
-    singUpAndCHangePassword() {
+    singUpAndChangePassword() {
       let randomUsername = faker.internet.userName();
       console.log('New username: ' + randomUsername);
 
@@ -212,12 +213,14 @@ signUp() {
   $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_admin);
   $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_admin);
   $(this.homePageElement.loginButton).click();
-  // $(this.homePageElement.homePageLink).waitForDisplayed();
-  browser.pause(3000);
-  $(this.homePageElement.sidePanelToggle).click();
-  $(this.homePageElement.usersDropdown).waitForClickable();
+
+
+  // $(this.homePageElement.sidePanelToggle).waitForExist();
+  // $(this.homePageElement.sidePanelToggle).click();
+  
+  $(this.homePageElement.usersDropdown).waitForExist({ timeout: 5000 });
   $(this.homePageElement.usersDropdown).click();
-  browser.pause(3000);
+  $(this.homePageElement.allUsersLink).waitForExist({ timeout: 5000 });
   $(this.homePageElement.allUsersLink).click();
   browser.pause(3000);
   $(this.homePageElement.newUserCheckbox).click();
@@ -226,12 +229,7 @@ signUp() {
   $(this.homePageElement.confirmNewUser).click();
   $(this.homePageElement.applyButton).click();
   $(this.homePageElement.successMessage).waitForDisplayed();
-
-  $(this.homePageElement.profileToggle).waitForClickable();
-  $(this.homePageElement.profileToggle).click();
-  $(this.homePageElement.signOutLink).waitForDisplayed();
-  $(this.homePageElement.signOutLink).click();
-  $(this.homePageElement.loginLink).waitForDisplayed();
+  $(this.homePageElement.logOutAdminLink).click();
 
   browser.pause(3000);
   $(this.homePageElement.loginLink).waitForClickable();
@@ -245,7 +243,8 @@ signUp() {
 
   let randomNewPassword = faker.internet.password();
       console.log('New password ' + randomNewPassword);
-
+  
+  // $(this.homePageElement.sidePanelToggle).click();
   $(this.homePageElement.myProfileUserLink).waitForDisplayed();
   $(this.homePageElement.myProfileUserLink).click();
   browser.pause(2000);

@@ -10,7 +10,7 @@ const sourceSpecDirectory = `tests/features/featureFiles`;
 const jsonTmpDirectory = `tests/reports/json/tmp/`;
 
 
-let featureFilePath = `${sourceSpecDirectory}/changeDataRequired.feature`;
+let featureFilePath = `${sourceSpecDirectory}/user.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
 // And store then in a tmp spec directory (created inside `the source spec directory)
@@ -92,7 +92,7 @@ exports.config = {
         browserName: 'safari',
         maxInstances: 1,
         automationName: 'XCUITest',
-        deviceName: 'iPad Pro (9.7-inch)',
+        deviceName: 'iPad Pro (12.9-inch) (4th generation)',
         platformVersion: '13.7',
         orientation: 'LANDSCAPE',
     }],

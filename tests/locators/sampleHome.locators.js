@@ -101,7 +101,7 @@ class homeLocators {
     this.postTestingCategory = '//li[text()="testing"]';
     this.postSubcategoryDropdown = '//span[text()="-- Select a Sub-Category --"]';
     this.postAutomationSubcategory = '(//li[text()="automation"])[2]';
-    this.contentTexarea = '#tinymce';
+    this.contentTextarea = '#tinymce';
     this.postParagraphDropdown = 'button[title="Blocks"]';
     this.paragraphHeading1 = '//h1[text()="Heading 1"]';
     this.paragraphHeading2 = '//h2[text()="Heading 2"]';

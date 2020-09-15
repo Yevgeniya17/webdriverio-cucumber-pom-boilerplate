@@ -22,7 +22,7 @@ loginAdmin() {
   $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_admin);
   $(this.homePageElement.loginButton).click();
   // $(this.homePageElement.homePageLink).waitForDisplayed();
-  browser.pause(3000);
+  browser.pause(6000);
   }
 
 signUp() {
@@ -55,11 +55,7 @@ signUp() {
   }
 
   logOutAdminPage() {
-    $(this.homePageElement.profileToggle).waitForClickable();
-    $(this.homePageElement.profileToggle).click();
-    $(this.homePageElement.signOutLink).waitForDisplayed();
-    $(this.homePageElement.signOutLink).click();
-    $(this.homePageElement.loginLink).waitForDisplayed();
+    $(this.homePageElement.logOutAdminLink).click();
   }
 
   switchToHomePage() {
@@ -75,6 +71,8 @@ signUp() {
   }
 
   verifyNewUser() {
+   $(this.homePageElement.sidePanelToggle).click();
+   browser.pause(3000);
    $(this.homePageElement.usersDropdown).waitForClickable();
    $(this.homePageElement.usersDropdown).click();
    browser.pause(3000);
@@ -89,31 +87,33 @@ signUp() {
   }
 
   loginUser() {
-    browser.pause(3000);
+    browser.setTimeout({ 'implicit': 5000 });
     $(this.homePageElement.loginLink).waitForClickable();
     $(this.homePageElement.loginLink).click();
-    browser.pause(3000);
+    browser.setTimeout({ 'implicit': 5000 });
     $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_user);
     $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_user);
     $(this.homePageElement.loginButton).click();
     // $(this.homePageElement.homePageLink).waitForDisplayed();
-    browser.pause(3000);
+    browser.setTimeout({ 'implicit': 5000 });
     }
 
     logOutUserPage() {
-      $(this.homePageElement.profileToggle).waitForClickable();
-      $(this.homePageElement.profileToggle).click();
-      $(this.homePageElement.signOutLink).waitForDisplayed();
-      $(this.homePageElement.signOutLink).click();
-      $(this.homePageElement.loginLink).waitForDisplayed();
+      // $(this.homePageElement.sidePanelToggle).click();
+      // browser.pause(8000);
+      browser.setTimeout({ 'implicit': 8000 });
+      $(this.homePageElement.logOutUserLink).click();
+  
     }
 
     addNewArticleUser() {
+      let frame = $('.tox-edit-area__iframe');
+      $(this.homePageElement.sidePanelToggle).click();
       $(this.homePageElement.addPostUser).waitForDisplayed();
       $(this.homePageElement.addPostUser).click();
       $(this.homePageElement.addArticleUser).waitForDisplayed();
       $(this.homePageElement.addArticleUser).click();
-      $(this.homePageElement.postTitleTextbox).waitForDisplayed();
+      $(this.homePageElement.postTitleTextbox).waitForExist({ timeout: 5000 });
       $(this.homePageElement.postTitleTextbox).setValue('Test');
       $(this.homePageElement.postSlugTextbox).setValue('Test');
       $(this.homePageElement.postSummaryTextbox).setValue('Test');
@@ -124,7 +124,8 @@ signUp() {
       $(this.homePageElement.postSubcategoryDropdown).click();
       $(this.homePageElement.postAutomationSubcategory).waitForDisplayed();
       $(this.homePageElement.postAutomationSubcategory).click();
-      browser.switchToFrame($('#body_ifr'));
+      frame.waitForDisplayed({ timeout: 5000 });
+      browser.switchToFrame(frame);
       $(this.homePageElement.contentTexarea).setValue('Test,Test,Test');
       browser.switchToParentFrame();
       $(this.homePageElement.postContentBoldButton).click();
@@ -144,14 +145,14 @@ signUp() {
 
       $(this.homePageElement.myProfileUserLink).waitForDisplayed();
       $(this.homePageElement.myProfileUserLink).click();
-      browser.pause(3000);
+      browser.setTimeout({ 'implicit': 5000 });
       $(this.homePageElement.firstNameUserTextbox).waitForExist();
       $(this.homePageElement.firstNameUserTextbox).setValue(randomFirstName);
       $(this.homePageElement.lastNameUserTextbox).setValue(randomLastName);
       $(this.homePageElement.saveUserInfromationButton).click();
-      browser.pause(2000);
+      browser.setTimeout({ 'implicit': 5000 });
       $(this.homePageElement.successMessage).waitForExist();
-
+      browser.setTimeout({ 'implicit': 5000 });
     
     }
 
@@ -213,7 +214,7 @@ signUp() {
   $(this.homePageElement.loginButton).click();
   // $(this.homePageElement.homePageLink).waitForDisplayed();
   browser.pause(3000);
-
+  $(this.homePageElement.sidePanelToggle).click();
   $(this.homePageElement.usersDropdown).waitForClickable();
   $(this.homePageElement.usersDropdown).click();
   browser.pause(3000);
@@ -259,6 +260,7 @@ signUp() {
   createNewPage() {
     var randomName = faker.lorem.word();
 
+    $(this.homePageElement.sidePanelToggle).click();
     $(this.homePageElement.pagesDropdown).waitForClickable();
     $(this.homePageElement.pagesDropdown).click();
     $(this.homePageElement.addNewPagesLink).waitForClickable();

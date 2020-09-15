@@ -5,11 +5,11 @@ class homeLocators {
     this.loginPasswordTextbox = '#password';
     this.loginButton = '#loginButton';
     this.forgotPasswordLink = 'a[href="/forgot-password"]';
-    this.signUpLink = '#signupLink';
-    this.signUpUsernameTextbox = 'input[name="username"]';
-    this.signUpEmailTextbox = 'input[name="email"]';
-    this.signUpPasswordTextbox = '#password';
-    this.signUpConfirmPasswordTextbox = '#cPassword';
+    this.signUpLink = '//a[@id="signupLink"]';
+    this.signUpUsernameTextbox = '//input[@name="username"]';
+    this.signUpEmailTextbox = '//input[@name="email"]';
+    this.signUpPasswordTextbox = '//input[@id="password"]';
+    this.signUpConfirmPasswordTextbox = '//input[@id="cPassword"]';
     this.registerButton = '#registerButton';
     this.homePageLink = '#viewSiteButton';
     this.contactsLink = 'div.menu-primary>ul>li>a[href="/pages/контакты"]';
@@ -41,13 +41,14 @@ class homeLocators {
     this.publishCheckbox = 'input[value="published"]';
     this.draftCheckbox = 'input[value="draft"]';
     this.publishPageButton = '//button[text()="Publish"]';
+    this.sidePanelToggle = '//button[@id="sidePanelToggle"]';
 
 
     this.commentsLink = '//span[text()="Comments"]';
     this.contactsLink = '//span[text()="Contacts"]';
     this.menuLink = '//span[text()="Menu"]';
     this.adSpacesLink = '//span[text()="Ad Spaces"]';
-    this.usersDropdown = '//span[text()="Users"]';
+    this.usersDropdown = '//a[@id="usersDropdown"]';
     this.administratorsLink = '//span[text()="Administrators"]';
     this.allUsersLink = '//span[text()="All Users"]';
     this.addNewUsersLink = '//a[contains(@href,"users")]/span[text()="Add New"]';
@@ -71,6 +72,7 @@ class homeLocators {
     this.searchButton = '#toggleSearch';
     this.searchTextbox = '#searchInput';
     this.myDashboardLink = '//a[text()="Dashboard"]';
+  
 
     this.pendingPostsLink = '#pendingPosts';
     this.followersLink = '#followers';
@@ -87,7 +89,7 @@ class homeLocators {
 
     this.profileToggle = '#profileToggle';
     this.signOutLink = '(//a[@href="/log-out"])[1]';
-    this.logOutUserLink = '#logout';
+    this.logOutUserLink = '//span[text()="Log Out"]';
     this.myProfileUserLink = '#myProfile';
     this.addPostUser = '#addPostLink';
     this.addArticleUser = '#addPost';

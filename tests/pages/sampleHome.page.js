@@ -186,11 +186,11 @@ signUp() {
 
       $(this.homePageElement.myProfileUserLink).waitForDisplayed();
       $(this.homePageElement.myProfileUserLink).click();
-      browser.pause(3000);
+      browser.pause(5000);
       $(this.homePageElement.usernameTextbox).waitForExist();
       $(this.homePageElement.usernameTextbox).setValue(randomUsername);
       $(this.homePageElement.saveUserInfromationButton).click();
-      browser.pause(2000);
+      browser.pause(5000);
       $(this.homePageElement.successMessage).waitForExist();
     }
 

@@ -107,7 +107,7 @@ signUp() {
     logOutUserPage() {
       // $(this.homePageElement.sidePanelToggle).click();
       // browser.pause(8000);
-      browser.setTimeout({ 'implicit': 8000 });
+      browser.pause(5000);
       $(this.homePageElement.logOutLink).click();
   
     }

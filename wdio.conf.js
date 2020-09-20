@@ -10,7 +10,7 @@ const sourceSpecDirectory = `tests/features/featureFiles`;
 const jsonTmpDirectory = `tests/reports/json/tmp/`;
 
 
-let featureFilePath = `${sourceSpecDirectory}/user.feature`;
+let featureFilePath = `${sourceSpecDirectory}/universal/*.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
 // And store then in a tmp spec directory (created inside `the source spec directory)
@@ -80,21 +80,21 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 1,
         //
-        // browserName: 'chrome',
-        // 'goog:chromeOptions': {
-        //     args: ['--headless', '--disable-gpu', '--window-size=1920,1080'],
-        //   },
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: ['--headless', '--disable-gpu', '--window-size=1920,1080'],
+          },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-        platformName: 'iOS',
-        browserName: 'safari',
-        maxInstances: 1,
-        automationName: 'XCUITest',
-        deviceName: 'iPad Pro (12.9-inch) (4th generation)',
-        platformVersion: '13.7',
-        orientation: 'LANDSCAPE',
+        // platformName: 'iOS',
+        // browserName: 'safari',
+        // maxInstances: 1,
+        // automationName: 'XCUITest',
+        // deviceName: 'iPad Pro (12.9-inch) (4th generation)',
+        // platformVersion: '13.7',
+        // orientation: 'LANDSCAPE',
     }],
     //
     // ===================
@@ -143,15 +143,16 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['appium'],
-    appium: {
-        command: 'appium',
-        args: {
+    // services: ['appium'],
+    // appium: {
+    //     command: 'appium',
+    //     args: {
             
-        },
-    },
-    port: 4723,
-    path: '/wd/hub',
+    //     },
+    // },
+    // port: 4723,
+    // path: '/wd/hub',
+    services: ['selenium-standalone'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

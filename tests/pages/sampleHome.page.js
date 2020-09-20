@@ -55,7 +55,12 @@ signUp() {
   }
 
   logOutAdminPage() {
-    $(this.homePageElement.logOutAdminLink).click();
+    // $(this.homePageElement.sidePanelToggle).click();
+    browser.pause(4000);
+    $(this.homePageElement.logOutLink).scrollIntoView();
+    browser.pause(4000);
+    $(this.homePageElement.logOutLink).waitForClickable();
+    $(this.homePageElement.logOutLink).click();
   }
 
   switchToHomePage() {
@@ -71,7 +76,7 @@ signUp() {
   }
 
   verifyNewUser() {
-   $(this.homePageElement.sidePanelToggle).click();
+  //  $(this.homePageElement.sidePanelToggle).click();
    browser.pause(3000);
    $(this.homePageElement.usersDropdown).waitForClickable();
    $(this.homePageElement.usersDropdown).click();
@@ -83,26 +88,27 @@ signUp() {
    $(this.homePageElement.confirmNewUser).waitForDisplayed();
    $(this.homePageElement.confirmNewUser).click();
    $(this.homePageElement.applyButton).click();
+   browser.pause(5000);
    $(this.homePageElement.successMessage).waitForDisplayed();
   }
 
   loginUser() {
-    browser.setTimeout({ 'implicit': 5000 });
+    browser.pause(5000);
     $(this.homePageElement.loginLink).waitForClickable();
     $(this.homePageElement.loginLink).click();
-    browser.setTimeout({ 'implicit': 5000 });
+    browser.pause(5000);
     $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_user);
     $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_user);
     $(this.homePageElement.loginButton).click();
     // $(this.homePageElement.homePageLink).waitForDisplayed();
-    browser.setTimeout({ 'implicit': 5000 });
+    browser.pause(5000);
     }
 
     logOutUserPage() {
       // $(this.homePageElement.sidePanelToggle).click();
       // browser.pause(8000);
       browser.setTimeout({ 'implicit': 8000 });
-      $(this.homePageElement.logOutUserLink).click();
+      $(this.homePageElement.logOutLink).click();
   
     }
 
@@ -113,7 +119,7 @@ signUp() {
       $(this.homePageElement.addPostUser).click();
       $(this.homePageElement.addArticleUser).waitForDisplayed();
       $(this.homePageElement.addArticleUser).click();
-      driver.pause(10000);
+      browser.pause(5000);
       $(this.homePageElement.postTitleTextbox).waitForExist({ timeout: 5000 });
       $(this.homePageElement.postTitleTextbox).setValue('Test');
       $(this.homePageElement.postSlugTextbox).setValue('Test');
@@ -125,8 +131,8 @@ signUp() {
       $(this.homePageElement.postSubcategoryDropdown).click();
       $(this.homePageElement.postAutomationSubcategory).waitForDisplayed();
       $(this.homePageElement.postAutomationSubcategory).click();
-      driver.pause(10000);
-      browser.switchToFrame(frame);
+      browser.pause(5000);
+      browser.switchToFrame('body_ifr');
       $(this.homePageElement.contentTextarea).setValue('Test,Test,Test');
       browser.switchToParentFrame();
       $(this.homePageElement.postContentBoldButton).click();
@@ -137,7 +143,7 @@ signUp() {
       $(this.homePageElement.publishButton).click();
     }
 
-    changeUserName() {
+    changeUserFirstLastName() {
       let randomFirstName = faker.fake("{{name.firstName}}");
       console.log('User first name: ' + randomFirstName); 
 
@@ -146,14 +152,14 @@ signUp() {
 
       $(this.homePageElement.myProfileUserLink).waitForDisplayed();
       $(this.homePageElement.myProfileUserLink).click();
-      browser.setTimeout({ 'implicit': 5000 });
+      browser.pause(5000);
       $(this.homePageElement.firstNameUserTextbox).waitForExist();
       $(this.homePageElement.firstNameUserTextbox).setValue(randomFirstName);
       $(this.homePageElement.lastNameUserTextbox).setValue(randomLastName);
       $(this.homePageElement.saveUserInfromationButton).click();
-      browser.setTimeout({ 'implicit': 5000 });
+      browser.pause(5000);
       $(this.homePageElement.successMessage).waitForExist();
-      browser.setTimeout({ 'implicit': 5000 });
+      browser.pause(5000);
     
     }
 
@@ -189,38 +195,44 @@ signUp() {
     }
 
     singUpAndChangePassword() {
-      let randomUsername = faker.internet.userName();
-      console.log('New username: ' + randomUsername);
+  let randomUsername = faker.internet.userName();
+    console.log('New username: ' + randomUsername);
 
-    let randomPassword = faker.internet.password();
-      console.log('Password ' + randomPassword);
+  let randomPassword = faker.internet.password();
+    console.log('Password ' + randomPassword);
 
-    let randomEmail = faker.internet.email();
-      console.log('User email ' + randomEmail);
+  let randomEmail = faker.internet.email();
+    console.log('User email ' + randomEmail);
 
 
-   $(this.homePageElement.signUpLink).click();
-   browser.pause(3000);
-   $(this.homePageElement.signUpUsernameTextbox).setValue(randomUsername);
-   $(this.homePageElement.signUpEmailTextbox).setValue(randomEmail);
-   $(this.homePageElement.signUpPasswordTextbox).setValue(randomPassword);
-   $(this.homePageElement.signUpConfirmPasswordTextbox).setValue(randomPassword);
-   $(this.homePageElement.registerButton).click();
-   browser.pause(3000);
+  $(this.homePageElement.signUpLink).click();
+  browser.pause(3000);
+  $(this.homePageElement.signUpUsernameTextbox).setValue(randomUsername);
+  $(this.homePageElement.signUpEmailTextbox).setValue(randomEmail);
+  $(this.homePageElement.signUpPasswordTextbox).setValue(randomPassword);
+  $(this.homePageElement.signUpConfirmPasswordTextbox).setValue(randomPassword);
+  $(this.homePageElement.registerButton).click();
+  browser.pause(3000);
 
   $(this.homePageElement.loginLink).click();
   browser.pause(3000);
   $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_admin);
   $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_admin);
   $(this.homePageElement.loginButton).click();
+  browser.pause(3000);
 
-
-  // $(this.homePageElement.sidePanelToggle).waitForExist();
-  // $(this.homePageElement.sidePanelToggle).click();
+  var isSideBarDisplayed = $(this.homePageElement.logOutLink).isDisplayed();
+  if (isSideBarDisplayed == false) {
+    $(this.homePageElement.sidePanelToggle).click();
+    browser.pause(5000);
+  }
+  else {
+    console.log("Side Bar Is Already Displayed");
+  }
   
   $(this.homePageElement.usersDropdown).waitForExist({ timeout: 5000 });
   $(this.homePageElement.usersDropdown).click();
-  $(this.homePageElement.allUsersLink).waitForExist({ timeout: 5000 });
+  $(this.homePageElement.allUsersLink).waitForClickable({ timeout: 5000 });
   $(this.homePageElement.allUsersLink).click();
   browser.pause(3000);
   $(this.homePageElement.newUserCheckbox).click();
@@ -229,7 +241,18 @@ signUp() {
   $(this.homePageElement.confirmNewUser).click();
   $(this.homePageElement.applyButton).click();
   $(this.homePageElement.successMessage).waitForDisplayed();
-  $(this.homePageElement.logOutAdminLink).click();
+
+  var isSideBarDisplayed2 = $(this.homePageElement.logOutLink).isDisplayed()
+  if (isSideBarDisplayed2 == false) {
+    $(this.homePageElement.sidePanelToggle).click();
+    browser.pause(5000);
+  }
+  else {
+    console.log("Side Bar Is Already Displayed");
+  }
+  
+  
+  $(this.homePageElement.logOutLink).click();
 
   browser.pause(3000);
   $(this.homePageElement.loginLink).waitForClickable();
@@ -241,8 +264,20 @@ signUp() {
   // $(this.homePageElement.homePageLink).waitForDisplayed();
   browser.pause(3000);
 
+  var isSideBarDisplayed3 = $(this.homePageElement.logOutLink).isDisplayed()
+  if (isSideBarDisplayed3 == false) {
+    $(this.homePageElement.sidePanelToggle).click();
+    browser.pause(5000);
+  }
+  else {
+    console.log("Side Bar Is Already Displayed");
+  }
+  
+
   let randomNewPassword = faker.internet.password();
       console.log('New password ' + randomNewPassword);
+
+ 
   
   // $(this.homePageElement.sidePanelToggle).click();
   $(this.homePageElement.myProfileUserLink).waitForDisplayed();
@@ -259,20 +294,33 @@ signUp() {
   createNewPage() {
     var randomName = faker.lorem.word();
 
-    $(this.homePageElement.sidePanelToggle).click();
+    // $(this.homePageElement.sidePanelToggle).click();
     $(this.homePageElement.pagesDropdown).waitForClickable();
     $(this.homePageElement.pagesDropdown).click();
     $(this.homePageElement.addNewPagesLink).waitForClickable();
     $(this.homePageElement.addNewPagesLink).click();
     $(this.homePageElement.pageNameTextbox).waitForDisplayed();
     $(this.homePageElement.pageNameTextbox).setValue(randomName);
-    browser.switchToFrame($('#content_ifr'));
-    $(this.homePageElement.contentTexarea).setValue('Test');
+    browser.pause(5000);
+    browser.switchToFrame('content_ifr');
+    $(this.homePageElement.contentTextarea).setValue('Test');
     browser.switchToParentFrame();
     $(this.homePageElement.publishCheckbox).click();
     $(this.homePageElement.publishPageButton).click();   
   }
     
+
+  sidePanelIsDisplayed() {
+    var isSideBarDisplayed = $(this.homePageElement.logOutLink).isDisplayed();
+    if (isSideBarDisplayed == false) {
+      $(this.homePageElement.sidePanelToggle).click();
+      browser.pause(5000);
+    }
+    else {
+      console.log("Side Bar Is Already Displayed");
+    }
+
+  }
 }
 
 module.exports = sampleHomePage;

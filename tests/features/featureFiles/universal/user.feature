@@ -1,18 +1,18 @@
-  Feature: Validate the Search functionality of webdriverIO Site
+Feature: Validate the Search functionality of webdriverIO Site
 
-  Background:
-      Given I open the website
+ 
+      
 
   @Scenario1
   Scenario: As a user, I should get relevant Search Results on searching for valid keywords from the webdriverIO Homepage's Search Bar
 
-  When I login as admin
-    And I verify new user
-    And I logout as admin
+  Given I open the website
+  When I login as user
+    And I change username
 
-@Scenario1
+
+    @Scenario1
   Scenario: As a user, I should get relevant Search Results on searching for valid keywords from the webdriverIO Homepage's Search Bar
 
-   When I create a new page
-   
-   
+  When I change user first and last name
+    And I logout as user

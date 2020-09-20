@@ -60,7 +60,7 @@ class homeLocators {
     this.generalSettingsLink = '//span[text()="General Settings"]';
     this.emailSettingsLink = '//span[text()="Email Settings"]';
     this.mediaSettingsLink = '//span[text()="Media Settings"]'
-    this.logOutAdminLink = '#logoutLink';
+    this.logOutLink = '#logoutLink';
     this.postLink = '//p[text()="Post"]';
     this.commentLink = '//p[text()="Comment"]';
     this.inactivePostLink = '//p[text()="Inactive Post"]';
@@ -89,7 +89,6 @@ class homeLocators {
 
     this.profileToggle = '#profileToggle';
     this.signOutLink = '(//a[@href="/log-out"])[1]';
-    this.logOutUserLink = '//span[text()="Log Out"]';
     this.myProfileUserLink = '#myProfile';
     this.addPostUser = '#addPostLink';
     this.addArticleUser = '#addPost';

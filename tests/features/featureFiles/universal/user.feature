@@ -1,8 +1,5 @@
 Feature: Validate the Search functionality of webdriverIO Site
 
- 
-      
-
   @Scenario1
   Scenario: As a user, I should get relevant Search Results on searching for valid keywords from the webdriverIO Homepage's Search Bar
 
@@ -10,8 +7,7 @@ Feature: Validate the Search functionality of webdriverIO Site
   When I login as user
     And I change username
 
-
-    @Scenario1
+  @Scenario1
   Scenario: As a user, I should get relevant Search Results on searching for valid keywords from the webdriverIO Homepage's Search Bar
 
   When I change user first and last name

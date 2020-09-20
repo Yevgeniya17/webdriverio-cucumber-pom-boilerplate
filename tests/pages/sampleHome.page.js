@@ -215,11 +215,11 @@ signUp() {
   browser.pause(3000);
 
   $(this.homePageElement.loginLink).click();
-  browser.pause(3000);
+  browser.pause(5000);
   $(this.homePageElement.loginEmailTextbox).setValue(process.env.testing_email_admin);
   $(this.homePageElement.loginPasswordTextbox).setValue(process.env.testing_password_admin);
   $(this.homePageElement.loginButton).click();
-  browser.pause(3000);
+  browser.pause(5000);
 
   var isSideBarDisplayed = $(this.homePageElement.logOutLink).isDisplayed();
   if (isSideBarDisplayed == false) {
@@ -234,12 +234,13 @@ signUp() {
   $(this.homePageElement.usersDropdown).click();
   $(this.homePageElement.allUsersLink).waitForClickable({ timeout: 5000 });
   $(this.homePageElement.allUsersLink).click();
-  browser.pause(3000);
+  browser.pause(5000);
   $(this.homePageElement.newUserCheckbox).click();
   $(this.homePageElement.bulkActionsDropdown).click();
   $(this.homePageElement.confirmNewUser).waitForDisplayed();
   $(this.homePageElement.confirmNewUser).click();
   $(this.homePageElement.applyButton).click();
+  browser.pause(5000)
   $(this.homePageElement.successMessage).waitForDisplayed();
 
   var isSideBarDisplayed2 = $(this.homePageElement.logOutLink).isDisplayed()
@@ -262,7 +263,7 @@ signUp() {
   $(this.homePageElement.loginPasswordTextbox).setValue(randomPassword);
   $(this.homePageElement.loginButton).click();
   // $(this.homePageElement.homePageLink).waitForDisplayed();
-  browser.pause(3000);
+  browser.pause(5000);
 
   var isSideBarDisplayed3 = $(this.homePageElement.logOutLink).isDisplayed()
   if (isSideBarDisplayed3 == false) {
